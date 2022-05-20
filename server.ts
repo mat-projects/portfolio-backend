@@ -18,6 +18,9 @@ const dbConfig = {
   ssl: sslSetting,
 };
 
+const sqlQuerySix = 'SELECT * FROM ranked_projects ORDER BY project_priority LIMIT 6';
+const sqlQueryAll = 'SELECT * FROM ranked_projects ORDER BY project_priority';
+
 const app = express();
 
 app.use(express.json()); //add body parser to each following route handler
@@ -27,10 +30,14 @@ const client = new Client(dbConfig);
 client.connect();
 
 app.get("/", async (req, res) => {
-  const dbres = await client.query('select * from categories');
+  const dbres = await client.query(sqlQuerySix);
   res.json(dbres.rows);
 });
 
+app.get("/all", async (req, res) => {
+  const dbres = await client.query(sqlQueryAll);
+  res.json(dbres.rows);
+});
 
 //Start the server on the given port
 const port = process.env.PORT;
