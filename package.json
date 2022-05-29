@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node dist/server.js",
     "start:dev": "LOCAL=true ts-node server.ts",
-    "postinstall": "tsc"
+    "postinstall": "tsc",
+    "format": "prettier --write src",
+    "format:check": "prettier --check src",
+    "lint": "eslint src"
   },
   "author": "your name here",
   "license": "ISC",
@@ -21,6 +24,8 @@
     "@types/pg": "^7.14.7",
     "@types/cors": "^2.8.9",
     "ts-node-dev": "^1.1.1",
-    "typescript": "^4.1.3"
+    "typescript": "^4.1.3",
+    "eslint": "^7.28.0",
+    "prettier": "2.3.1"
   }
 }
