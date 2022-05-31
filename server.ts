@@ -18,8 +18,8 @@ const dbConfig = {
   ssl: sslSetting,
 };
 
-const sqlQuerySix = 'SELECT * FROM "ranked_projects" ORDER BY project_priority LIMIT 6';
-const sqlQueryAll = 'SELECT * FROM "ranked_projects" ORDER BY project_priority';
+const sqlQuerySix = 'SELECT * FROM ranked_projects ORDER BY project_priority LIMIT 6';
+const sqlQueryAll = 'SELECT * FROM ranked_projects ORDER BY project_priority';
 
 const app = express();
 
